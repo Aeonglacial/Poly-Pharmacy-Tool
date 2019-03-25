@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AeonGlacial">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Poly-Pharamacy Tool</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img src="assets/img/dimocksofware.png" alt="dimocklogo" height="120" width="300">
+                <h1>POLY-PHAR<span id="dimockgreen">M</span>ACY TOOL</h1>
+            </header>
+        </div>
+        <div class="menu" id="registration">
+            <form id="regForm" class="regForm">
+                <div id="admType">
+                    <input type="radio" name="admType" value="Admission" id="admType_Adm">Admission 
+                    <input type="radio" name="admType" value="Current Resident" id="admType_Res">Current Resident
+                </div>
+                <div id="subAbuse">
+                    <input type="radio" name="abuse" value="oud" id="abuseOUD">OUD <br>
+                    <input type="radio" name="abuse" value="aud" id="abuseAUD">AUD <br>
+                    <input type="radio" name="abuse" value="stim" id="abuseStim">Stimulant Abuse <br>
+                    <input type="radio" name="abuse" value="benz" id="abuseBenzo">Benzodiazepine Abuse <br>
+                </div>
+                <div id="patientName">
+                    Patient First Name:
+                    <input type="text" name="patientFistname" id="ptFstName" placeholder="Patient First Name" required min="2" max="50"><br>
+                    Patient Last Name:
+                    <input type="text" name="patientLastname" id="ptLstName" placeholder="Patient Last Name" required min="2" max="50"><br>
+                    DOB: <br> 
+                    <input type="date" name="dob" id="ptDob" required min="1920-01-01" max="2030-01-01">
+                </div>
+            </form>
+        </div>
+        <div class="content" id="medform">
+            <form name="MedicationTable" id="medTableForm">
+                <div id="formA">
+                    <div id="benzomed">
+                        <h3>Benzodiazepine/Zdrug/Gabapentinoid (BZG)</h3>
+                        <select name="benzo" id="benzo" class="medSelect" size="10" multiple>
+                            <option id=benzo1 value="Alprazolam">Alprazolam (Xanax)</option>
+                            <option id=benzo2 value="Clonazepam">Clonazepam (Klonopin)</option>
+                            <option id=benzo3 value="Diazepam">Diazepam (Valium)</option>
+                            <option id=benzo4 value="Lorazepam">Lorazepam (Ativan)</option>
+                            <option id=benzo5 value="Temazepam">Temazepam (Resoril)</option>
+                            <option id=benzo6 value="Zolpidem">Zolpidem (Ambien)</option>
+                            <option id=benzo7 value="Zaleplon">Zaleplon (Sonata)</option>
+                            <option id=benzo8 value="Eszopiclone">Eszopiclone (Lunesta)</option>
+                            <option id=benzo9 value="Gabapentin">Gabapentin (Neurontin)</option>
+                            <option id=benzo10 value="Pregabalin">Pregabalin (Lyrica)</option>
+                        </select> 
+                    </div>
+                    <div id="antipsyMed">
+                        <h3>Anti-Psychotic</h3>
+                        <select name="antipsy" id="antipsy" class="medSelect" size=15 multiple>
+                            <option id=antipsy1 value="Aripiprazole">Aripiprazole (Abilify)</option>
+                            <option id=antipsy2 value="Chlorpromazine">Chlorpromazine</option>
+                            <option id=antipsy3 value="Clozapine"><b>Clozapine</b></option>
+                            <option id=antipsy4 value="Fluphenazine">Fluphenazine</option>
+                            <option id=antipsy5 value="Haloperidol">Haloperidol (Haldol)</option>
+                            <option id=antipsy6 value="Loxapine">Loxapine</option>
+                            <option id=antipsy7 value="Lurasidone">Lurasidone (Latuda)</option>
+                            <option id=antipsy8 value="Olanzapine">Olanzapine (Zyprexa)</option>
+                            <option id=antipsy9 value="Paliperidone">Paliperidone (Invega)</option>
+                            <option id=antipsy10 value="Perphenazine">Perphenazine (Trilafon)</option>
+                            <option id=antipsy11 value="Prochlorperazine">Prochlorperazine (Compazine)</option>
+                            <option id=antipsy12 value="Quetiapine">Quetiapine (Seroquel)</option>
+                            <option id=antipsy13 value="Risperidone">Risperidone (Risperdal)</option>
+                            <option id=antipsy14 value="Thioridazine">Thioridazine</option>
+                            <option id=antipsy15 value="Ziprasidone">Ziprasidone (Geodon)</option>
+                        </select>
+                    </div>
+                    <div id="centraMed">
+                        <h3>Centrally-acting Muscle Relaxant</h3>
+                        <select name="centra" id="centra" class="medSelect" size="4" multiple>
+                            <option id=centra1 value="Baclofen">Baclofen</option>
+                            <option id=centra2 value="Carisoprodol">Carisoprodol (Soma)*</option>
+                            <option id=centra3 value="Cyclobenzaprine">Cyclobenzaprine</option>
+                            <option id=centra4 value="Tizanidine">Tizanidine (Zanaflex)</option>
+                        </select>
+                    </div>
+                    <div id="opiMed">
+                        <h3>Opiods*</h3>
+                        <select name="opi" id="opi" size="9" class="medSelect" multiple>
+                            <option id=opi1 value="Hydrocodone">Hydrocodone (Vicodin, Lorcet)</option>
+                            <option id=opi2 value="Hydromorphone">Hydromorphone (Dilaudid)</option>
+                            <option id=opi3 value="Morphine">Morphine (MS-Contin)</option>
+                            <option id=opi4 value="Oxycodone">Oxycodone (Percocet, Percodan, Oxycontin)</option>
+                            <option id=opi5 value="Tramadol">Tramadol (Ultram)</option>
+                            <option id=opi6 value="Codeine">Codeine</option>
+                            <option id=opi7 value="Oxymorphone">Oxymorphone (Opana)</option>
+                            <option id=opi8 value="Meperidone">Meperidone (Demerol)</option>
+                            <option id=opi9 value="Fentanyl">Fentanyl (Duragesic)</option>
+                        </select>
+                    </div>
+                    <div id="barbMed">
+                        <h3>Barbiturates*</h3>
+                        <select name="barb" id="barb" size="11" class="medSelect" multiple>
+                            <option id=barb1 value="Amobarbital">Amobarbital</option>
+                            <option id=barb2 value="Aprobarbital">Aprobarbital</option>
+                            <option id=barb3 value="Butabarbital">Butabarbital</option>
+                            <option id=barb4 value="Mephobarbital">Mephobarbital</option>
+                            <option id=barb5 value="Methohexital">Methohexital</option>
+                            <option id=barb6 value="Pentobarbital">Pentobarbital</option>
+                            <option id=barb7 value="Phenobarbital">Phenobarbital</option>
+                            <option id=barb8 value="Primidone">Primidone</option>
+                            <option id=barb9 value="Secobarbital">Secobarbital</option>
+                            <option id=barb10 value="Thiopental">Thiopental</option>
+                            <option id=barb11 value="Thyamilal">Thyamilal</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="formB">
+                    <div id="antiepMed">
+                        <h3>Anti-Epileptic</h3>
+                        <select name="anti" id="anti" size="7" class="medSelect" multiple>
+                            <option id=anti1 value="Carbamazepine"><b>Carbamazepine (Tegretol)</b></option>
+                            <option id=anti2 value="Divalproex"><b>Divalproex (Depakote)</b></option>
+                            <option id=anti3 value="Lamotrigine">Lamotrigine (Lamictal)</option>
+                            <option id=anti4 value="Oxcarbazepine">Oxcarbazepine (Trileptal)</option>
+                            <option id=anti5 value="Topiramate">Topiramate (Topamax)</option>
+                            <option id=anti6 value="Levetiracetam">Levetiracetam (Keppra)</option>
+                            <option id=anti7 value="Vimpat">Vimpat (lacosamide)*</option>
+                        </select>
+                    </div>
+                    <div id="antiDepMed">
+                        <h3>Anti-Depressant</h3>
+                        <select name="antidep" id="antidep" size="13" class="medSelect" multiple>
+                            <option id=antidep1 value="Amitriptyline">Amitriptyline (Elavil)</option>
+                            <option id=antidep2 value="Bupropion">Bupropion (Wellbutrin)</option>
+                            <option id=antidep3 value="Citalopram">Citalopram (Celexa)</option>
+                            <option id=antidep4 value="Doxepin">Doxepin (Silenor)</option>
+                            <option id=antidep5 value="Duloxetine">Duloxetine (Cymbalta)</option>
+                            <option id=antidep6 value="Escitalopram">Escitalopram (Lexapro)</option>
+                            <option id=antidep7 value="Fluoxetine">Fluoxetine (Prozac)</option>
+                            <option id=antidep8 value="Mirtazapine">Mirtazapine (Remeron)</option>
+                            <option id=antidep9 value="Nortriptyline">Nortriptyline (Pamelor)</option>
+                            <option id=antidep10 value="Paroxetine">Paroxetine (Paxil)</option>
+                            <option id=antidep11 value="Sertraline">Sertraline (Zoloft)</option>
+                            <option id=antidep12 value="Trazodone">Trazodone (Desyrel)</option>
+                            <option id=antidep13 value="Venlafaxine">Venlafaxine (Effexor)</option>
+                        </select>
+                    </div>
+                    <div id="stimMed">
+                        <h3>Stimulant*</h3>
+                        <select name="stim" id="stim" size="6" class="medSelect" multiple>
+                            <option id=stim1 value="Amphetamine">Amphetamine (Dexedrine)</option>
+                            <option id=stim2 value="Amphetamine/Dextroamphetamine">Amphetamine/Dextroamphetamine (Adderall)</option>
+                            <option id=stim3 value="Lisdexamphetamine">Lisdexamphetamine (Vyvanse)</option>
+                            <option id=stim4 value="Dexmethylphenidate">Dexmethylphenidate (Focalin)</option>   
+                            <option id=stim5 value="Methamphetamine">Methamphetamine (Desoxyn)</option>
+                            <option id=stim6 value="Methylphenidate">Methylphenidate (Concerta, Ritalin)</option>
+                        </select>
+                    </div>
+                    <div id="other">
+                        <h3>Other</h3>
+                        <select name="other" id="oth" size="11" class="medSelect" multiple>
+                            <option id=other1 value="Atomoxetine">Atomoxetine (Strattera)</option>
+                            <option id=other2 value="Buspirone">Buspirone (Buspar)</option>
+                            <option id=other3 value="Clonidine">Clonidine (Catapres)</option>
+                            <option id=other4 value="Dextromethorphan">Dextromethorphan</option>
+                            <option id=other5 value="Diphenhydramine">Diphenhydramine (Benadryl; Banophen)</option>
+                            <option id=other6 value="Guanfacine">Guanfacine (Intuniv)</option>
+                            <option id=other7 value="Hydroxyzine">Hydroxyzine (Vistaril)</option>
+                            <option id=other8 value="Prazosin">Prazosin (Minipress)</option>
+                            <option id=other9 value="Promethazine">Promethazine (Phenergan)</option>  
+                            <option id=other10 value="Naltrexone">Naltrexone</option>
+                            <option id=other11 value="Lithium">Lithium carbonate/Lithium citrate</option>
+                        </select>
+                    </div>
+                    <div class="special">
+                        <div id="highalt">
+                            <h3>High Alert</h3>
+                            <select name="highal" id="hialt" class="medSelect" size="2" multiple>
+                                <option id=highal1 value="Insulin"><b>Insulin</b></option>
+                                <option id=highal2 value="Warfarin"><b>Warfarin (Coumadin)</b></option>
+                            </select>
+                        </div>
+                        <div id="oud">
+                            <h3>OUD Maintenance</h3>
+                            <select name="oud" id="oudmain" class="medSelect" size="2" multiple>
+                                <option id=oud1 value="Buprenorphine">Buprenorphine (Suboxone, Subutex)</option>
+                                <option id=oud2 value="Methadone">Methadone (Dolophine)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="footer" id="button">
+            <button id="btn">Generate Medication Review</button>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

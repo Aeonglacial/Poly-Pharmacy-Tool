@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AeonGlacial">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medication Review Form</title>
+    <link rel="stylesheet" href="assets/css/reviewform.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img src="assets/img/healing.jpg" alt="dimocklogo"> 
+            <div id="patienthead">
+                <h3 id="patientName" class="headerptname"></h3>
+                <h3 id="dob" class="headerptname"></h3>
+                <h4 id="adm" class="headerptname"></h4>
+                <h4 id="sub" class="headerptname"></h4>
+            </div>
+            </header>
+        </div>
+    <form id="outForm" name="outputForm">
+        <table id="meds" class="blueTable">
+            <thead>
+                <tr>
+                    <th>Medication Name</th>
+                    <th>Dose</th>
+                    <th>Directions</th>
+                    <th>Prescriber</th>
+                    <th>Patient’s best understanding of indication</th>
+                    <th>Does patient have a follow-up appointment with prescriber?</th>
+                    <th>Has patient been seen by this prescriber more than 3 times?</th>
+                </tr>
+            </thead>
+            <tbody id="output">
+            </tbody>
+            <tfoot class="blueTable">
+                <tr><td>Reviewer Signature:___________________________________</td><td><script>var d = new Date(); var currentdate = ""; currentdate = d.toLocaleDateString() +' '+ d.toLocaleTimeString(); document.write(currentdate)</script></td></tr>
+            </tfoot>
+        </table>
+        <button id="print" class="button">PDF MAGICKS</button>
+    </form>
+</body>
+<script src="reviewform.js"></script>
+</html>
