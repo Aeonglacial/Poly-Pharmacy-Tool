@@ -1,10 +1,5 @@
 const fs = require('fs');
-const os = require('os');
 const ipcRen = require('electron').ipcRenderer;
-
-
-let data = fs.readFileSync('src/Utilities/patientdata.json');
-let patient;
 const ptName = document.getElementById('patientName');
 const ptDOB = document.getElementById('dob');
 const ptAdm = document.getElementById('adm');
@@ -14,9 +9,12 @@ const button = document.getElementById('print');
 
 var tableBody = document.getElementById('output');
 
-
+let ptData;
+let data = fs.readFileSync('src/utils/patientdata.json');
+let patient;
 
 patient = JSON.parse(data);
+
 
 ptName.innerHTML = 'Patient Name: ' + patient.name;
 ptDOB.innerHTML = 'Patient Date of Birth: ' + patient.dob;
@@ -60,17 +58,3 @@ ipcRen.on('wrote-pdf', function(event,path){
     const message = `Wrote PDF to: ${path}`
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
