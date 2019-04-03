@@ -1,0 +1,26 @@
+{
+  "name": "medicationintaketool",
+  "version": "1.0.0",
+  "description": "Medication Intake Tool",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-win": "electron-packager . polypharmtool --overwrite --asar=true --platform=win32 --arch=ia32 --icon=asssets/icons/win/polyicon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Medication Intake Tool\"",
+    "rebuild": "electron-rebuild -f -w yourmodule"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Aeonglacial/Poly-Pharmacy-Tool.git"
+  },
+  "author": "AeonGlacial",
+  "license": "MIT",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron": "^4.1.1",
+    "electron-packager": "^13.1.1",
+    "electron-rebuild": "^1.8.4",
+    "electron-winstaller": "^3.0.4"
+  }
+}
