@@ -1,19 +1,18 @@
-const {app, BrowserWindow, Menu, ipcMain} = require('electron')
-const path = require('path')
-const url = require('url')
-const shell = require('electron').shell
+const {app, BrowserWindow, Menu, ipcMain} = require('electron');
+const path = require('path');
+const url = require('url');
+const shell = require('electron').shell;
 const fs = require('fs');
 const os = require('os');
 
+let win;
+let addWin;
+let patient;
 
-
-let win
-let addWin
-let patient
 
 function createWindow () {
 
-  win = new BrowserWindow({ width: 1750, height: 970, icon:__dirname +'/src/assets/img/icon1.png', resizable: false})
+  win = new BrowserWindow({ width: 1750, height: 970, icon:__dirname +'/src/assets/img/icon1.png', resizable: false, nodeIntegration: false})
 
   win.loadFile('src/index.html')
 
@@ -24,8 +23,6 @@ function createWindow () {
 
   Menu.setApplicationMenu(menu)
 };
-
-
 
 var menu =  Menu.buildFromTemplate ([
   {
@@ -45,13 +42,25 @@ var menu =  Menu.buildFromTemplate ([
   }
 ]);
 
+app.on('ready', createWindow)
 
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+app.on('activate', () => {
+
+  if (win === null) {
+    createWindow()
+  }
+})
 
 ipcMain.on('patient-data', (event, arg) => {
 
   patient = arg;
-  event.sender.send('patient-shit', patient);
-  addWin = new BrowserWindow({width: 1100, height: 700, icon:__dirname +'/src/assets/img/icon1.png'})
+  addWin = new BrowserWindow({width: 1100, height: 700, icon:__dirname +'/src/assets/img/icon1.png', nodeIntegration: false})
 
   addWin.loadFile('src/reviewform.html');
     addWin.on('closed', () => {
@@ -82,18 +91,3 @@ ipcMain.on('print-to-pdf', function(event) {
 
 })
 
-
-app.on('ready', createWindow)
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
-})
-
-app.on('activate', () => {
-
-  if (win === null) {
-    createWindow()
-  }
-})
