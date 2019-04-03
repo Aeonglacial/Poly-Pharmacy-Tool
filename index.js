@@ -1,21 +1,15 @@
-const {BrowserWindow, Menu, dialog} = require('electron').remote
-const path = require('path')
-const url = require('url')
+const {Menu, dialog} = require('electron').remote
 const ipcRen =  require('electron').ipcRenderer
 const fs = require('fs')
-
-const write = fs.writeFileSync
-
-
+const write = fs.writeFileSync;
 const btn = document.getElementById('btn');
 const stimulants = document.getElementById('stim').selectedOptions;
 const antiphyschotics = document.getElementById('antipsy').selectedOptions;
 const antidepressant = document.getElementById('antidep').selectedOptions;
 const antiepileptic = document.getElementById('anti').selectedOptions;
+const tableA = document.getElementById('formA').getElementsByTagName('select');
 
 var boldMeds = ["Clozapine","Carbamazepine","Divalproex","Lithium","Insulin","Warfarin"];
-
-const tableA = document.getElementById('formA').getElementsByTagName('select');
 
 
 let addWindow
@@ -25,7 +19,6 @@ let radioAdmin = document.getElementsByName('admType');
 let radioAbuse = document.getElementsByName('abuse');
 let medColForm = document.forms[1].elements;
 let patient;
-
 
 
 class PatientData {
@@ -125,13 +118,11 @@ function genMedReview (){
 
     patient = new PatientData (name, dob, adm, sub, meds, medcollection);
 
-    var ptdata = JSON.stringify(patient)
+    var ptData = JSON.stringify(patient);
+    write('src/utils/patientdata.json',ptData);
 
-  
-    write('src/Utilities/patientdata.json', ptdata);
-
-
-
+    
+       
     if (patient.meds >= 6 && patient.name.length >4) {
       ipcRen.send('patient-data', patient);
     } else if (patient.hasStimAbuse() && patient.name.length >4 ){
@@ -152,8 +143,6 @@ function genMedReview (){
     
 
 };
-
-
 
 
 var newMenu =  Menu.buildFromTemplate ([
